@@ -17,9 +17,19 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        /*if(DB::connection()->getDatabaseName()) { echo "connected successfully to database ".DB::connection()->getDatabaseName(); };
+        DB::enableQueryLog();
+        $log = DB::getQueryLog();
+        var_dump($log);
+        */
         $todos=Test::all();
+                 
+        var_dump($todos);
+        foreach ($todos as $t){
+            echo $t->nombre." ". $t->numero."<br/>";
+        }
         die();
-        return view('dashboard')->compact('todos');
+        //return view('dashboard')->compact('todos');
         //return view('dashboard');
         //$porId = Test::find(1);// find solo es para buscar por el Id y no necesita el metodo get();
         
